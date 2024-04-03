@@ -17,3 +17,56 @@ input, button {
 body {
   margin: 0;
 }
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__control {
+  width: 100%;
+  height: 50px;
+  padding: 5px 30px;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+input::placeholder {
+  color: #757575;
+  
+}
+
+input:focus::placeholder {
+  color: #FFF;
+}
+
+.form__control--text {
+  background-color: #FFFFFF1A;
+  border: solid 1px #FFCCBC;
+  color: #FFF;
+}
+
+.form__control--text:focus {
+  border: solid 1px #FFCCBC;
+  background-color: #FFFFFF33;
+  color: #21212180;
+  font-weight: bold;
+}
+
+.form__control--btn {
+  color: #FFF;
+  background-color: #E64A19CC;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.form__control--btn:hover {
+  color: #FFF;
+  background-color: #E64A19;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+}
