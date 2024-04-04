@@ -33,7 +33,8 @@
 
   const register = async () => {
 
-    if(!password.value==confirmPassword.value){
+
+    if(!(password.value==confirmPassword.value)){
       alert('error correos no son iguales')
     }else {
 
