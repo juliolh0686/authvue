@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <div class="form__container">
-      <div class="userimg"><img :src=userImg alt=""></div>
+      <div class="userimg">
+        <slot name="image"></slot>
+      </div>
       <div><p class="title"><slot name="title"></slot></p></div>
       <slot name="content"></slot>
     </div>
@@ -9,7 +11,6 @@
 </template>
 
 <script lang="ts" setup>
-import userImg from "@/assets/img/user.png"
 
 </script>
 
@@ -34,15 +35,7 @@ import userImg from "@/assets/img/user.png"
     font-weight: bold;
     text-align: center;
     font-size: 25px;
-  }
-
-  .userimg {
-    text-align: center;
-  }
-
-  .userimg img {
-    border-radius: 50%;
-    width: 100px;
+    margin-top: 20px;
   }
 
 </style>

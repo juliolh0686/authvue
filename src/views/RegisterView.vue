@@ -1,59 +1,75 @@
 <template>
   <AuthLayout>
+    <template #image>
+      <img :src=userImg alt="">
+    </template>
     <template #title>
       Register
     </template>
     <template #content>
       <form class="form">
-        <input type="text" placeholder="Enter your name" class="form__control form__control--text" v-model="name">
-        <input type="text" placeholder="Enter your last name" class="form__control form__control--text" v-model="lastname">
-        <input type="text" placeholder="Enter your email address" class="form__control form__control--text" v-model="email">
-        <input type="password" placeholder="Enter Your password" class="form__control form__control--text" v-model="password">
-        <input type="confirmPassword" placeholder="Enter confirm password" class="form__control form__control--text" v-model="confirmPassword">
+        <input type="text" placeholder="Enter your name" class="form__control form__control--text" v-model="RegisterUser.name">
+        <input type="text" placeholder="Enter your last name" class="form__control form__control--text" v-model="RegisterUser.lastname">
+        <input type="text" placeholder="Enter your email address" class="form__control form__control--text" v-model="RegisterUser.email">
+        <input type="password" placeholder="Enter Your password" class="form__control form__control--text" v-model="RegisterUser.password">
+        <input type="password" placeholder="Enter confirm password" class="form__control form__control--text" v-model="RegisterUser.confirmPassword">
         <button class="form__control form__control--btn" @click.prevent='register'>Sign up</button>
-        <div>already have account? <router-link to="/" >Sign in</router-link></div>
+        <div class="container__text">already have account? <router-link to="/" >Sign in</router-link></div>
       </form>
     </template>
   </AuthLayout>
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
+  import { Ref, ref } from 'vue'
   import useAuth from '@/stores/auth'
   import AuthLayout from '@/layouts/AuthLayout.vue'
+  import type IUser from '@/interfaces/IUser'
+  import router from '@/router'
+  import userImg from '@/assets/img/register.png'
 
   const store = useAuth()
 
-  let name = ref('')
-  let lastname = ref('')
-  let email = ref('')
-  let password = ref('')
-  let confirmPassword = ref('')
+  let RegisterUser:Ref<IUser> = ref({
+    name: '',
+    lastname: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  })
 
-
+  const errores = ref<String[]>([]);
+    
   const register = async () => {
 
+    if (RegisterUser.value.name === '') errores.value.push('El nombre es obligatorio')
+    if (RegisterUser.value.lastname === '') errores.value.push('El Apellido es obligatorio')
+    if (RegisterUser.value.email === '') errores.value.push('El correo es obligatorio')
+    if (RegisterUser.value.password === '') errores.value.push('El password es obligatorio')
+    if (RegisterUser.value.confirmPassword === '') errores.value.push('El confirmar password es obligatorio')
+    if (!(RegisterUser.value.password === RegisterUser.value.confirmPassword)) errores.value.push('No corresponde la contraseña')
 
-    if(!(password.value==confirmPassword.value)){
-      alert('error correos no son iguales')
-    }else {
+    if(errores.value.length > 0) {
+      alert(errores.value)
+      errores.value.splice(0)
+    } else {
 
       try {
-      const response = await store.register(name.value,lastname.value,email.value,password.value)
 
-      // if(!response.status) {
-      //   alert(response.message)
-      // }else {
-      //   alert("Bienvenido "+response.resultado.name)
-      //   router.push({name: 'dashboard'})
-      // }
+      const response = await store.register(RegisterUser.value.name,RegisterUser.value.lastname,RegisterUser.value.email,RegisterUser.value.password)
+
+      if(!response.status) {
+        alert(response.message)
+      }else {
+        alert(response.message)
+        router.push({name: 'dashboard'})
+      }
 
         } catch (error) {
           alert(error)
         }
 
       }
-      
     }
 
     

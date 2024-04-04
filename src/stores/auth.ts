@@ -1,25 +1,35 @@
 import { defineStore } from "pinia";
-import type User from '@/interfaces/IUser'
-// import type User from '@/interface/User'
-import type { Ref } from 'vue'
 
 const useAuth = defineStore('auth', {
   state: () => ({
-    token: null,
-    baseURL: '',
+    token: null as string | null,
+    //baseURL: '',
     user: '',
     users : [
-      {name:'Julio', lastName: 'Loarte',email:'juliolh06@gmail.com',password: '12345'},
-      {name:'Julio', lastName: 'Loarte',email:'julio@gmail.com',password: '12345'},
+      {name:'Jorge Manuel', lastName: 'Samaniego Calderon',email:'jsamaniego@gmail.com',password: '12345'},
+      {name:'Sergio', lastName: 'Perez Miranda',email:'sperez@gmail.com',password: '12345'},
+      {name:'Manuel Erick', lastName: 'Loyola Jara',email:'mloyola@gmail.com',password: '12345'},
     ]
   }),
+  persist: {
+    storage : sessionStorage,
+  },
   actions: {
 
     async register(name:string,lastname:string,email:string, password:string) {
 
       const newUser = {name: name, lastName: lastname, email: email, password: password};
-      // Agregar el nuevo usuario al array
-      this.users.push(newUser);
+      
+      let resultado = this.users.push(newUser);
+
+      if(!resultado) {
+        let response = {status: false,message:'Usuario no Registrado'}
+        return response
+      }else {
+        this.token = 'TokenOk'
+        let response = {status: true,message:'Usuario Registrado'}
+        return response
+      }
     
     },
 
@@ -27,17 +37,21 @@ const useAuth = defineStore('auth', {
       const resultado = this.users.find((user)=> user.email === email && user.password == password);
 
       if(!resultado) {
-        let response = {status: false,message:'Usuario no Registrado'}
+        let response = {status: false, message:'Usuario no Registrado'}
         return response
       }else {
-        let response = {status: true,resultado}
+        this.token = 'TokenOk'
+        let response = {status: true, resultado}
+        this.user = resultado.name
         return response
       }
       
     },
 
     async logout() {
-
+      this.token = null
+      let response = {status: true,message:'Logout'}
+      return response
     }
   }
 })
