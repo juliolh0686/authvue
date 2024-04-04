@@ -12,7 +12,7 @@
       <input type="text" placeholder="Enter your email address" class="form__control form__control--text" v-model="email">
       <input type="password" placeholder="Enter Your password" class="form__control form__control--text" v-model="password">
       <div class="container__text">
-        <label><input type="checkbox" name="" id="" >Remember me</label>
+        <div class="container__text--aling"><input type="checkbox" name="" id=""><label class="espacing__left">Remember me</label></div>
         <router-link to="/recovery" >Forgot password?</router-link>
       </div>  
       <button class="form__control form__control--btn" @click.prevent='login'>Sign in</button>
@@ -30,6 +30,7 @@
   import { ref } from 'vue'
   import AuthLayout from '@/layouts/AuthLayout.vue'
   import router from '@/router'
+  import Swal from 'sweetalert2'
 
   import userImg from "@/assets/img/login.png"
 
@@ -44,10 +45,22 @@
       const response = await store.login(email.value,password.value)
 
       if(!response.status) {
-        alert(response.message)
+        Swal.fire({
+        icon: 'warning',
+        confirmButtonColor: "#E64A19",
+        text: response.message,
+      })
       }else {
-        alert("Bienvenido "+response.resultado.name)
-        router.push({name: 'dashboard'})
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: 'Bienvenido '+response.resultado.name,
+          showConfirmButton: false,
+          timer: 1500
+      })
+
+      router.push({name: 'dashboard'})
+
       }
 
     } catch (error) {
@@ -59,8 +72,17 @@
 
 <style scoped>
   
-  input[type=checkbox] {
-    margin-left: 2px;
+  .espacing__left {
+    margin-left: 5px;
+  }
+
+  .container__text--aling {
+    align-content: center;
+  }
+
+  router-link {
+    text-decoration: none;
+    color: aliceblue;
   }
 
 </style>

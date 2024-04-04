@@ -27,6 +27,7 @@
   import type IUser from '@/interfaces/IUser'
   import router from '@/router'
   import userImg from '@/assets/img/register.png'
+  import Swal from 'sweetalert2'
 
   const store = useAuth()
 
@@ -50,7 +51,11 @@
     if (!(RegisterUser.value.password === RegisterUser.value.confirmPassword)) errores.value.push('No corresponde la contraseña')
 
     if(errores.value.length > 0) {
-      alert(errores.value)
+        Swal.fire({
+          icon: 'warning',
+          confirmButtonColor: "#E64A19",
+          text: errores.value
+        })
       errores.value.splice(0)
     } else {
 
@@ -59,9 +64,19 @@
       const response = await store.register(RegisterUser.value.name,RegisterUser.value.lastname,RegisterUser.value.email,RegisterUser.value.password)
 
       if(!response.status) {
-        alert(response.message)
+        Swal.fire({
+        icon: 'warning',
+        confirmButtonColor: "#E64A19",
+        text: response.message,
+      })
       }else {
-        alert(response.message)
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: response.message,
+          showConfirmButton: false,
+          timer: 1500
+      })
         router.push({name: 'dashboard'})
       }
 

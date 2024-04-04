@@ -27,6 +27,7 @@ const useAuth = defineStore('auth', {
         return response
       }else {
         this.token = 'TokenOk'
+        this.user = name
         let response = {status: true,message:'Usuario Registrado'}
         return response
       }

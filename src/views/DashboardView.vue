@@ -1,10 +1,8 @@
 <template>
   
   <AppLayout>
-    {{ 'Usuario: ' +store.user }}
-
-    <div>
-      <h1>Usuarios</h1>
+    <div class="container__central">
+      <h1 class="title__user">Listado de Usuarios</h1>
       <table>
         <tr>
         <th>Name</th>
@@ -28,4 +26,29 @@
 
   let store = useAuth()
 
+
 </script>
+
+<style>
+  .container__central {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #757575;
+  }
+  th, td {
+    padding: 10px;
+    border: 1px solid #757575;
+  }
+
+  .title__user {
+    text-align: center;
+    padding: 15px;
+  }
+</style>
