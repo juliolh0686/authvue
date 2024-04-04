@@ -43,12 +43,12 @@
     
   const register = async () => {
 
-    if (RegisterUser.value.name === '') errores.value.push('El nombre es obligatorio')
-    if (RegisterUser.value.lastname === '') errores.value.push('El Apellido es obligatorio')
-    if (RegisterUser.value.email === '') errores.value.push('El correo es obligatorio')
-    if (RegisterUser.value.password === '') errores.value.push('El password es obligatorio')
-    if (RegisterUser.value.confirmPassword === '') errores.value.push('El confirmar password es obligatorio')
-    if (!(RegisterUser.value.password === RegisterUser.value.confirmPassword)) errores.value.push('No corresponde la contraseña')
+    if (RegisterUser.value.name === '') errores.value.push('The name is required')
+    if (RegisterUser.value.lastname === '') errores.value.push('The Last Name is required')
+    if (RegisterUser.value.email === '') errores.value.push('The email is required')
+    if (RegisterUser.value.password === '') errores.value.push('The Password ir required')
+    if (RegisterUser.value.confirmPassword === '') errores.value.push('Confirming password is required')
+    if (!(RegisterUser.value.password === RegisterUser.value.confirmPassword)) errores.value.push('Passwords are not the same')
 
     if(errores.value.length > 0) {
         Swal.fire({

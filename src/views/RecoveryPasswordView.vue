@@ -8,7 +8,7 @@
     </template>
     <template #content>
       <input type="text" placeholder="Enter your email address" class="form__control form__control--text" v-model="email">
-      <button class="form__control form__control--btn" @click.prevent='recoveryPassword'>Recovery Password</button>
+      <button class="form__control form__control--btn" @click.prevent='recoveryPassword'>Recover Password</button>
       <div class="container__text"><p>already have account?</p><router-link to="/" >Sign in</router-link></div>
     </template>
   </AuthLayout>

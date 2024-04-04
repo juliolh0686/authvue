@@ -1,6 +1,6 @@
-# authenticationvue
+# Plantillas de Autenticacion con vue.js
 
-This template should help get you started developing with Vue 3 in Vite.
+Se desarrollo las planillas de acceso, registro y recuperar contraseña para lo cual se utilizo los plugin de pinia para el manejo de estados globales, se realizo las validaciones para las diferentes pantallas creadas.
 
 ## Recommended IDE Setup
 

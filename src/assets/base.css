@@ -45,13 +45,14 @@ input:focus::placeholder {
 .form__control--text {
   background-color: #FFFFFF1A;
   border: solid 1px #FFCCBC;
-  color: #FFF;
+  color: #21212180;
+  font-size: 15px;
 }
 
 .form__control--text:focus {
   border: solid 1px #FFCCBC;
   background-color: #FFFFFF33;
-  color: #21212180;
+  color: #FFF;
   font-weight: bold;
 }
 

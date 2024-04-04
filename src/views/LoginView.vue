@@ -17,6 +17,7 @@
       </div>  
       <button class="form__control form__control--btn" @click.prevent='login'>Sign in</button>
       <div class="container__text"><p>Dont't have an account?</p><router-link to="/register">Register</router-link></div>
+      <div class="social"><img :src="faceImg" alt=""><img :src="googleImg" alt=""><img :src="instImg" alt=""></div>
     </form>
   </template>
   
@@ -32,11 +33,14 @@
   import router from '@/router'
   import Swal from 'sweetalert2'
 
-  import userImg from "@/assets/img/login.png"
+  import userImg from '@/assets/img/login.png'
+  import faceImg from '@/assets/img/facebook.png'
+  import googleImg from '@/assets/img/google.png'
+  import instImg from '@/assets/img/instagram.png'
 
   const store = useAuth()
-  let email = ref('')
-  let password = ref('')
+  let email = ref('jsamaniego@gmail.com')
+  let password = ref('12345')
 
 
   const login = async () => {
@@ -54,7 +58,7 @@
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: 'Bienvenido '+response.resultado.name,
+          title: 'Welcome '+response.resultado.name,
           showConfirmButton: false,
           timer: 1500
       })
@@ -83,6 +87,16 @@
   router-link {
     text-decoration: none;
     color: aliceblue;
+  }
+
+  .social {
+    display: flex;
+    margin-top: 25px;
+    justify-content: space-evenly;
+  }
+
+  .social img {
+    cursor: pointer;
   }
 
 </style>

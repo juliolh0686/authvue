@@ -1,6 +1,6 @@
 <template>
   <header>
-    <p class="text__user">{{ 'Usuario: '+store.user }}</p>
+    <p class="text__user">{{ 'User: '+store.user }}</p>
     <button @click="logout" class="button__logout">Logout</button>
   </header>
   <div class="containerLayout">
@@ -26,7 +26,7 @@ const logout = async () => {
         Swal.fire({
           position: "top-end",
           icon: "info",
-          title: 'cerro sesion',
+          title: 'Exited the application',
           showConfirmButton: false,
           timer: 1500
       })
