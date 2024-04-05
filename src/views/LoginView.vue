@@ -51,7 +51,7 @@
       if(!response.status) {
         Swal.fire({
         icon: 'warning',
-        confirmButtonColor: "#E64A19",
+        confirmButtonColor: #E64A19,
         text: response.message,
       })
       }else {
