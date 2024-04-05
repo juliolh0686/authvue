@@ -29,7 +29,7 @@
   
   import useAuth from '@/stores/auth'
   import { ref } from 'vue'
-  import AuthLayout from '@/layouts/AuthLayout.vue'
+  import type AuthLayout from '@/layouts/AuthLayout.vue'
   import router from '@/router'
   import Swal from 'sweetalert2'
 
