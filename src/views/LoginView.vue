@@ -58,7 +58,7 @@
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: 'Welcome '+response.resultado.name,
+          title: 'Welcome '+response.resultado?.name,
           showConfirmButton: false,
           timer: 1500
       })

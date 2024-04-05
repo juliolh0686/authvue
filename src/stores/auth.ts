@@ -38,11 +38,11 @@ const useAuth = defineStore('auth', {
       const resultado = this.users.find((user)=> user.email === email && user.password == password);
 
       if(!resultado) {
-        let response = {status: false, message:'Usuario no Registrado'}
+        let response = {status: false, message:'Usuario no Registrado',resultado: resultado}
         return response
       }else {
         this.token = 'TokenOk'
-        let response = {status: true, resultado}
+        let response = {status: true, message:'Ok', resultado: resultado}
         this.user = resultado.name
         return response
       }
