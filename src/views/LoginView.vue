@@ -50,9 +50,9 @@
 
       if(!response.status) {
         Swal.fire({
-        icon: 'warning',
-        confirmButtonColor: '#E64A19',
-        text: response.message,
+          icon: 'warning',
+          confirmButtonColor: "#E64A19",
+          text: response.message,
       })
       }else {
         Swal.fire({
