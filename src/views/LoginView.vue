@@ -20,16 +20,14 @@
       <div class="social"><img :src="faceImg" alt=""><img :src="googleImg" alt=""><img :src="instImg" alt=""></div>
     </form>
   </template>
-  
 </AuthLayout>
-
 </template>
 
 <script lang="ts" setup>
   
   import useAuth from '@/stores/auth'
   import { ref } from 'vue'
-  import type AuthLayout from '@/layouts/AuthLayout.vue'
+  import AuthLayout from '@/layouts/AuthLayout.vue'
   import router from '@/router'
   import Swal from 'sweetalert2'
 
