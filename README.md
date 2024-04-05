@@ -2,6 +2,8 @@
 
 Se desarrollo las planillas de acceso, registro y recuperar contraseña para lo cual se utilizo los plugin de pinia para el manejo de estados globales, se realizo las validaciones para las diferentes pantallas creadas.
 
+**Ver la Pagina en Acción** [Demo Web](https://juliolh0686.github.io/authvue/).
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
