@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 const useAuth = defineStore('auth', {
   state: () => ({
     token: null as string | null,
+    regexCorreo: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
     //baseURL: '',
     user: '',
     users : [

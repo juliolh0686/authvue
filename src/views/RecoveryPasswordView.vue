@@ -19,22 +19,25 @@ import { ref } from 'vue'
 import AuthLayout from '@/layouts/AuthLayout.vue'
 import userImg from '@/assets/img/recovery.png'
 import Swal from 'sweetalert2'
+import useAuth from '@/stores/auth'
 
 let email = ref('')
 
+const store = useAuth()
+
 let recoveryPassword = () => {
 
-  if(email.value=='') {
+  if(!store.regexCorreo.test(email.value)) {
     Swal.fire({
     icon: 'warning',
     confirmButtonColor: "#E64A19",
-    text: 'Ingresar Email'
+    text: 'Enter email or invalid email'
   })
   }else {
     Swal.fire({
     icon: 'info',
     confirmButtonColor: "#E64A19",
-    text: 'Enviado al Email'
+    text: 'Email sent'
   })
   }
 

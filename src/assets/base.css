@@ -8,16 +8,18 @@
   padding: 0;
 }
 
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
 input, button {
   background: none;
   border: none;
   outline: 0;
 }
-
-body {
-  margin: 0;
-}
-
 
 .form {
   display: flex;
@@ -88,4 +90,15 @@ input:focus::placeholder {
   padding: 0 10px;
   font-size: 14px;
   color: #212121;
+}
+
+
+/* Tamaño de fuente  */
+
+.swal2-title {
+  font-size: 15px !important;
+} 
+
+.swal2-html-container{
+  font-size: 15px !important;
 }

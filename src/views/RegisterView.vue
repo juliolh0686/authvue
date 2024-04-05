@@ -46,15 +46,16 @@
     if (RegisterUser.value.name === '') errores.value.push('The name is required')
     if (RegisterUser.value.lastname === '') errores.value.push('The Last Name is required')
     if (RegisterUser.value.email === '') errores.value.push('The email is required')
+    if (!store.regexCorreo.test(RegisterUser.value.email)) errores.value.push('Invalid email')
     if (RegisterUser.value.password === '') errores.value.push('The Password ir required')
-    if (RegisterUser.value.confirmPassword === '') errores.value.push('Confirming password is required')
+    if (RegisterUser.value.confirmPassword === '') errores.value.push('Confirm password is required')
     if (!(RegisterUser.value.password === RegisterUser.value.confirmPassword)) errores.value.push('Passwords are not the same')
 
     if(errores.value.length > 0) {
         Swal.fire({
           icon: 'warning',
           confirmButtonColor: "#E64A19",
-          html: errores.value,
+          html: errores.value.join('<br>'),
         })
       errores.value.splice(0)
     } else {
