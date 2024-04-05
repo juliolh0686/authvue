@@ -28,6 +28,9 @@
     background-color:#fcf1f11A;
     margin: 0 auto;
     padding: 30px;
+    -webkit-box-shadow: 12px 12px 10px -6px rgba(255,86,34,0.22);
+    -moz-box-shadow: 12px 12px 10px -6px rgba(255,86,34,0.22);
+    box-shadow: 12px 12px 10px -6px rgba(255,86,34,0.22);
   }
 
   .title {
