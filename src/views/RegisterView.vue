@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { Ref, ref } from 'vue'
+  import { type Ref, ref } from 'vue'
   import useAuth from '@/stores/auth'
   import AuthLayout from '@/layouts/AuthLayout.vue'
   import type IUser from '@/interfaces/IUser'
