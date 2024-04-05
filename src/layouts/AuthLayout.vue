@@ -23,7 +23,7 @@
   }
 
   .form__container {
-    width: 400px;
+    max-width: 400px;
     border-radius: 5px;
     background-color:#fcf1f11A;
     margin: 0 auto;

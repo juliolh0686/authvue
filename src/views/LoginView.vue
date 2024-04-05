@@ -93,8 +93,13 @@
     justify-content: space-evenly;
   }
 
-  .social img {
+    .social img {
     cursor: pointer;
+    opacity: 0.6;
+  }
+
+  .social img:hover {
+    opacity: 1.0;
   }
 
 </style>

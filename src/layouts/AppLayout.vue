@@ -28,7 +28,7 @@ const logout = async () => {
           icon: "info",
           title: 'Exited the application',
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
       })
         router.push({name: 'login'})
       }
