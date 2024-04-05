@@ -54,7 +54,7 @@
         Swal.fire({
           icon: 'warning',
           confirmButtonColor: "#E64A19",
-          text: errores.value
+          html: errores.value,
         })
       errores.value.splice(0)
     } else {
